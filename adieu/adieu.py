@@ -2,7 +2,6 @@ import inflect
 
 p = inflect.engine()
 
-
 names = []
 while True:
     try:
@@ -11,4 +10,4 @@ while True:
     except EOFError:
         break
 
-print("Adieu, adieu,", names)
+print(f"Adieu, adieu, to {p.join(names)}")
