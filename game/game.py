@@ -13,6 +13,7 @@ while True:
     # Randomizing the number
 secret = random.randint(1, number)
 
+# Prompt the user to guess the number
 while True:
     try:
         guess = int(input("Guess"))
@@ -26,6 +27,3 @@ while True:
     except ValueError:
 
         pass
-
-
-# Prompting the user to guess the number
