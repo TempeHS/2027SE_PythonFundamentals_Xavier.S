@@ -16,6 +16,10 @@ def main():
     return
 
 
+def is_valid(s):
+    return len_check(s) and letter_check(s) and valid_value_check(s) and number_check(s)
+
+
 def len_check(string):
 
     if len(string) > 6:
@@ -75,4 +79,5 @@ def number_check(string):
             return True
 
 
-main()
+if __name__ == "__main__":
+    main()
