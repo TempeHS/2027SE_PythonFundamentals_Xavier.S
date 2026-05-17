@@ -1,31 +1,33 @@
 def main():
     while True:
         fraction = input("Fraction: ")
-
         try:
-            x_text, y_text = fraction.split("/")
-            x = int(x_text)
-            y = int(y_text)
-
-            if x > y:
-                continue
-
-            percentage = (x / y) * 100
-            percentage = round(percentage)
-
-            if percentage == 0:
-                print("E")
-            elif percentage >= 100:
-                print("F")
-            else:
-                print(f"{percentage}%")
-
+            percentage = convert(fraction)
+            print(tank(percentage))
             break
-
-        except ValueError:
-            pass
-        except ZeroDivisionError:
+        except (ValueError, ZeroDivisionError):
             pass
 
 
-main()
+def convert(fraction):
+    x_text, y_text = fraction.split("/")
+    x = int(x_text)
+    y = int(y_text)
+
+    if x > y:
+        raise ValueError("Numerator cannot be greater than denominator.")
+
+    percentage = round((x / y) * 100)
+    return percentage
+
+
+def tank(percentage):
+    if percentage <= 1:
+        return "E"
+    if percentage >= 99:
+        return "F"
+    return f"{percentage}%"
+
+
+if __name__ == "__main__":
+    main()
